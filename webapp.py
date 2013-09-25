@@ -18,10 +18,10 @@ class WebApp():
         self.api.add_resource(UserResource, "/user/<string:id>")
         self.api.add_resource(UserList, "/users")
 
-    def run(self, debug=False):
-        self.app.run(debug=debug)
+    def run(self):
+        self.app.run("127.0.0.1", debug=True, port=8100, ssl_context="adhoc")
 
 if __name__ == "__main__":
     app = WebApp()
-    app.run(True)
+    app.run()
 
