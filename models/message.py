@@ -1,8 +1,11 @@
 __author__ = 'Modulus'
+#coding: utf-8
 
 
 from mongoengine import *
 from models.user import User
+
+from flask.ext.restful import Resource, Api, fields, marshal_with
 
 
 connect("tutorial")
@@ -14,3 +17,11 @@ class Message(Document):
     text = StringField()
     receiver = ReferenceField(User)
     sender = ReferenceField(User)
+
+    @staticmethod
+    def format():
+        return {
+            "subject": fields.String,
+            "text": fields.String,
+
+        }

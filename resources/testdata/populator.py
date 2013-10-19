@@ -60,6 +60,14 @@ class Populator(object):
         message2.sender = user4
         message2.receiver = user2
         message2.save()
+        #
+        # message3 = Message()
+        # message3.subject = "Second message"
+        # message3.text = "This is the Third message ever in the system. Hello Jane this is Åge, how are you?"
+        # message3.sender = user4
+        # message3.receiver = user1
+        # message3.save()
+
 
 
 

@@ -1,4 +1,4 @@
-__author__ = 'JohnSigvald'
+__author__ = 'Modulus'
 
 from flask.ext import restful
 

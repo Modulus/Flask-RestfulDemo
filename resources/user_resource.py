@@ -1,4 +1,4 @@
-__author__ = 'JohnSigvald'
+__author__ = 'Modulus'
 
 from flask.ext.restful import Resource, Api, fields, marshal_with
 
