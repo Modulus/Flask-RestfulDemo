@@ -1,15 +1,14 @@
+from resources.user_resource import UserResource
+
 __author__ = 'JohnSigvald'
 
 
 from flask import Flask
 from flask.ext import restful
-from resources.user_list import UserList
+from resources.user_list_resource import UserListResource
 
 
 from resources.main import Main
-
-
-
 
 
 class WebApp():
@@ -18,8 +17,8 @@ class WebApp():
         self.api = restful.Api(self.app)
 
         self.api.add_resource(Main, "/")
-        # self.api.add_resource(UserResource, "/user/<string:id>")
-        self.api.add_resource(UserList, "/users")
+        self.api.add_resource(UserResource, "/user/<string:id>")
+        self.api.add_resource(UserListResource, "/users")
 
     def run(self, debug=False):
         self.app.run(debug=debug)

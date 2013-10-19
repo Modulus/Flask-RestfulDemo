@@ -36,7 +36,7 @@ class Populator(object):
         user3.passHash = "No hash"
         user3.userName = "GoldDigger86"
 
-        user4.firstName = "Åge"
+        user4.firstName = "Leif"
         user4.lastName = "Paulsen"
         user4.birthDate = datetime.now()
         user4.passHash = "No hash"

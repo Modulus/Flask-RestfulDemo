@@ -1,16 +1,17 @@
 __author__ = 'JohnSigvald'
 
-from flask.ext import restful
-
-from testdata import users
+from flask.ext.restful import Resource, Api, fields, marshal_with
 
 
-class UserResource(restful.Resource):
+from models.user import User
+
+
+class UserResource(Resource):
+
+    @marshal_with(User.format())
     def get(self, id):
-        if not id:
-            return {"message", "No user selected!"}
-        else:
-            data = users.Users()
-            for user in data.get():
-                if user["id"] == id:
-                    return user
+        return User.objects.get(id=id)
+
+    def put(self, user):
+        User.save(user)
+        return user
