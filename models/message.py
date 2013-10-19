@@ -23,5 +23,7 @@ class Message(Document):
         return {
             "subject": fields.String,
             "text": fields.String,
+            "sender": fields.String,
+            "receiver": fields.String
 
         }

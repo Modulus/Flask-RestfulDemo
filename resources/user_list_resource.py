@@ -14,10 +14,7 @@ class UserListResource(Resource):
 
     @marshal_with(User.format())
     def get(self):
-        users = []
-        for user in User.objects():
-            users.append(user)
-        return users
+        return list(User.objects.all())
 
     def put(self, user):
         self.users.users.append(user)
