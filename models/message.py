@@ -23,7 +23,14 @@ class Message(Document):
         return {
             "subject": fields.String,
             "text": fields.String,
-            "sender": fields.Nested(User.format()),
-            "receiver": fields.Nested(User.format())
+            "sender": fields.Nested(Message.userFormat()),
+            "receiver": fields.Nested(Message.userFormat())
+        }
 
+    @staticmethod
+    def userFormat():
+        return {
+            "firstName": fields.String,
+            "lastName": fields.String,
+            "userName": fields.String,
         }
