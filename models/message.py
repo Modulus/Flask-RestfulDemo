@@ -13,10 +13,13 @@ connect("tutorial")
 
 class Message(Document):
 
-    subject = StringField()
-    text = StringField()
+    subject = StringField(default="")
+    text = StringField(required=True)
     receiver = ReferenceField(User)
-    sender = ReferenceField(User)
+    sender = ReferenceField(User, required=True)
+    read = BooleanField()
+    sent = DateTimeField()
+    received = DateTimeField()
 
     @staticmethod
     def format():

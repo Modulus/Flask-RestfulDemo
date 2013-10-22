@@ -12,7 +12,7 @@ from resources.messages_resource import MessagesResource
 app = Flask(__name__)
 api = restful.Api(app)
 app.route("/", methods=["GET"])
-api.add_resource(UserResource, "/user/<string:id>")
+api.add_resource(UserResource, "/user/<string:id>", "/user")
 api.add_resource(UserListResource, "/users")
 api.add_resource(MessagesResource, "/messages/<string:user_id>")
 api.add_resource(RequestParseTest, "/parse")

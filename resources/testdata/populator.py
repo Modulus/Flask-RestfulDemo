@@ -8,6 +8,10 @@ __author__ = 'Modulus'
 
 class Populator(object):
 
+    def clear(self):
+        User.drop_collection()
+        Message.drop_collection()
+
     def run(self):
 
         User.drop_collection()
@@ -21,26 +25,26 @@ class Populator(object):
         user1.firstName = "John"
         user1.lastName = "Doe"
         user1.birthDate = datetime.now()
-        user1.passHash = "No hash"
         user1.userName = "Creator"
+        user1.passHash = user1.userName
 
         user2.firstName = "Jane"
         user2.lastName = "Doe"
         user2.birthDate = datetime.now()
-        user2.passHash = "No hash"
         user2.userName = "Nemesis"
+        user2.passHash = user2.userName
 
         user3.firstName = "Michelle"
         user3.lastName = "Nielsen"
         user3.birthDate = datetime.now()
-        user3.passHash = "No hash"
         user3.userName = "GoldDigger86"
+        user3.passHash = user3.userName
 
         user4.firstName = "Leif"
         user4.lastName = "Paulsen"
         user4.birthDate = datetime.now()
-        user4.passHash = "No hash"
         user4.userName = "The_Artist"
+        user4.passHash = user4.passHash
 
         user1.save()
         user2.save()
@@ -67,12 +71,6 @@ class Populator(object):
         message3.sender = user4
         message3.receiver = user1
         message3.save()
-
-
-
-
-
-
 
 if __name__ == "__main__":
 
