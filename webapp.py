@@ -10,8 +10,6 @@ from resources.user_list_resource import UserListResource
 from resources.messages_resource import MessagesResource
 
 
-from resources.main import Main
-
 
 app = Flask(__name__)
 api = restful.Api(app)
