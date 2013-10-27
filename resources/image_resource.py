@@ -2,6 +2,7 @@ from datetime import datetime
 from bson import ObjectId
 from flask import request, make_response
 from flask.ext.restful import Resource, marshal_with, reqparse, fields, abort
+import werkzeug
 from models.Image import Image
 
 from models.user import User
@@ -23,6 +24,7 @@ class ImageCustomResource(Resource):
 
         image = Image()
         image.image = file
+        image.image.content_type = "image/png"
         image.save()
 
         return "Image saved"
@@ -30,6 +32,7 @@ class ImageCustomResource(Resource):
     def get(self, id):
         image = Image.objects.get(id=id)
 
-        response = make_response(image)
+        response = make_response(image.image.read())
+        response.content_type = "image/png"
 
         return response

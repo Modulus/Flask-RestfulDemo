@@ -10,7 +10,7 @@ connect("tutorial")
 
 class Image(Document):
 
-    image = FileField(required=True)
+    image = FileField()
 
 
     @staticmethod
