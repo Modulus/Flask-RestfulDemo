@@ -44,7 +44,7 @@ class Populator(object):
         user4.lastName = "Paulsen"
         user4.birthDate = datetime.now()
         user4.userName = "The_Artist"
-        user4.passHash = user4.passHash
+        user4.passHash = user4.userName
 
         user1.save()
         user2.save()

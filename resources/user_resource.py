@@ -18,6 +18,7 @@ class UserResource(Resource):
         self.parser.add_argument("birth_date", type=datetime, help="Your birthday")
         self.parser.add_argument("pass", type=str, help="Password is required")
         self.parser.add_argument("id", type=str, help="User id")
+        self.parser.add_argument("image")
         self.args = self.parser.parse_args()
 
     @marshal_with(User.format())
@@ -36,6 +37,7 @@ class UserResource(Resource):
         user_name = self.args["user_name"]
         birth_date = self.args["birth_date"]
         passwd = self.args["pass"]
+        image = self.args["image"]
         #Hashing is done on user save, see User class for this
         if passwd:
             try:
