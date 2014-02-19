@@ -4,7 +4,7 @@ from flask.views import View
 from flask import render_template
 
 
-class IndexView(View):
-
+class LoginView(View):
+    
     def dispatch_request(self):
-        return render_template("index.html", name=None)
+        return render_template("login.html", name="loginView")

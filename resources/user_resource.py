@@ -44,7 +44,7 @@ class UserResource(Resource):
                 existingUser = User.objects.get(firstName=first_name)
             except DoesNotExist:
                 user = User(firstName=first_name, lastName=last_name, userName=user_name,
-                            birthDate=birth_date, passHash=hash)
+                            birthDate=birth_date, passHash=passwd)
                 user.save()
                 return user
         #Don't inform of existing user
